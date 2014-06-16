@@ -10,10 +10,14 @@ int main(int argc, char **argv) {
 		return -1;
 	}
 
+	char buf[1024];
+
 	int fd = open(argv[1], O_RDWR);
 
 	while(1) {
 		sleep(1);
+		read(fd, buf, 1024);
+		printf("%s\n", buf);
 	}
 
 	return 0;
