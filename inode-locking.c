@@ -3,6 +3,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#define _GNU_SOURCE
 
 int main(int argc, char **argv) {
 	if (argc < 2) {
@@ -12,7 +13,7 @@ int main(int argc, char **argv) {
 
 	char buf[20480];
 
-	int fd = open(argv[1], O_RDWR);
+	int fd = open(argv[1], O_RDWR | O_DIRECT);
 
 	while(1) {
 		sleep(1);
