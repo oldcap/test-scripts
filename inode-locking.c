@@ -18,7 +18,7 @@ int main(int argc, char **argv) {
 	while(1) {
 		sleep(1);
 		read(fd, buf, 12288);
-		printf("%s\n", buf + 10200);
+		printf("%s\n", buf);
 	}
 
 	return 0;
