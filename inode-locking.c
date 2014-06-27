@@ -11,13 +11,13 @@ int main(int argc, char **argv) {
 		return -1;
 	}
 
-	char buf[12288];
+	char buf[4096];
 
 	int fd = open(argv[1], O_RDWR | O_DIRECT);
 
 	while(1) {
 		sleep(1);
-		read(fd, buf, 12288);
+		read(fd, buf, 4096);
 		printf("%s\n", buf);
 	}
 
