@@ -1,9 +1,9 @@
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#define _GNU_SOURCE
 
 int main(int argc, char **argv) {
 	if (argc < 2) {
