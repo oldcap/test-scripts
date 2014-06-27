@@ -3,7 +3,9 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <malloc.h>
 #include <unistd.h>
+#define BUF_SIZE 20480
 
 int main(int argc, char **argv) {
 	if (argc < 2) {
@@ -11,7 +13,7 @@ int main(int argc, char **argv) {
 		return -1;
 	}
 
-	char buf[4096];
+	char * buf = memalign(4096, BUF_SIZE);
 
 	int fd = open(argv[1], O_RDWR | O_DIRECT);
 
