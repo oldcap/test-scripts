@@ -19,8 +19,8 @@ int main(int argc, char **argv) {
 
 	while(1) {
 		sleep(1);
-		read(fd, buf, 4096);
-		printf("%s\n", buf);
+		read(fd, buf, BUF_SIZE);
+		printf("%s\n", buf + (BUF_SIZE - 128));
 	}
 
 	return 0;
