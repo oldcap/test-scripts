@@ -19,11 +19,9 @@ int main(int argc, char **argv) {
 	int fd = open(argv[1], O_RDONLY);
 	unsigned long long offset = strtoull(argv[2]);
 
-	while(1) {
-		lseek(fd, offset, SEEK_SET);
-		read(fd, buf, BUF_SIZE);
-		printf("%s\n", buf);
-	}
+	lseek(fd, offset, SEEK_SET);
+	read(fd, buf, BUF_SIZE);
+	printf("%s\n", buf);
 
 	free(buf);
 	close(fd);
