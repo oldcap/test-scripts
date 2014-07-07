@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
 	}
 	ret = read(fd, buf, BUF_SIZE);
 	if (ret != BUF_SIZE) {
-		printf("Cannot read\n");
+		printf("Cannot read, %d\n", ret);
 	}
 	printf("%s\n", buf);
 
