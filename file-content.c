@@ -14,13 +14,19 @@ int main(int argc, char **argv) {
 		return -1;
 	}
 
+	int ret;
 	char * buf = malloc(BUF_SIZE);
 
 	int fd = open(argv[1], O_RDONLY);
 	unsigned long long offset = strtoull(argv[2]);
 
-	lseek(fd, offset, SEEK_SET);
-	read(fd, buf, BUF_SIZE);
+	printf("Seeking to %llu\n", offset);
+
+	ret = lseek(fd, offset, SEEK_SET);
+	if (ret != offset) {
+		printf("Cannot seek\n");
+	}
+	ret = read(fd, buf, BUF_SIZE);
 	printf("%s\n", buf);
 
 	free(buf);
