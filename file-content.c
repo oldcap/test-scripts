@@ -5,6 +5,7 @@
 #include <fcntl.h>
 #include <malloc.h>
 #include <unistd.h>
+#include <errno.h>
 #define BUF_SIZE 20480
 
 
@@ -28,7 +29,7 @@ int main(int argc, char **argv) {
 	}
 	ret = read(fd, buf, BUF_SIZE);
 	if (ret != BUF_SIZE) {
-		printf("Cannot read, %d\n", ret);
+		perror("Cannot read, ");
 	}
 	printf("%s\n", buf);
 
