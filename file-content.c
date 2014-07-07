@@ -27,6 +27,9 @@ int main(int argc, char **argv) {
 		printf("Cannot seek\n");
 	}
 	ret = read(fd, buf, BUF_SIZE);
+	if (ret != BUF_SIZE) {
+		printf("Cannot read\n");
+	}
 	printf("%s\n", buf);
 
 	free(buf);
