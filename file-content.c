@@ -18,7 +18,7 @@ int main(int argc, char **argv) {
 	char * buf = malloc(BUF_SIZE);
 
 	int fd = open(argv[1], O_RDONLY);
-	unsigned long long offset = strtoull(argv[2]);
+	unsigned long long offset = strtoull(argv[2], NULL, 10);
 
 	printf("Seeking to %llu\n", offset);
 
