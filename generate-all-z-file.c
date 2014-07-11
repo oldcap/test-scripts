@@ -5,7 +5,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-#define BUF_SIZE 1024 * 1024 * 1024;
+#define BUF_SIZE 1024 * 1024 * 1024
 
 int main(int argc, char **argv)
 {
