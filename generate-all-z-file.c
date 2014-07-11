@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 	}
 
 	fname = argv[1];
-	fd = open(fname, O_CREAT);
+	fd = open(fname, O_WRONLY);
 
 	if (argc == 3) {
 		fsize = strtoull(argv[2], NULL, 10);
