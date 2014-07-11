@@ -5,12 +5,17 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
+#define BUF_SIZE = 1024 * 1024 * 1024;
+
 int main(int argc, char **argv)
 {
 	int fd;
 	char *fname;
 	unsigned long long fsize;
+
 	char *buf;
+	int written = 0;
+	int ret = 0;
 
 	if (argc < 2) {
 		printf("Usage: generate-all-z-file filename <size>\n");
@@ -26,10 +31,13 @@ int main(int argc, char **argv)
 		fsize = 1024 * 1024 * 1024;
 	}
 
-	buf = malloc(fsize);
-	memset(buf, 'z', fsize);
+	while (written < fsize) {
+		buf = malloc(BUF_SIZE);
+		memset(buf, 'z', BUF_SIZE);
 
-	write(fd, buf, fsize);
+		ret = write(fd, buf, BUF_SIZE);
+		written += ret;
+	}
 
 	close(fd);
 
