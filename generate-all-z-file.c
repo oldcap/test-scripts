@@ -14,7 +14,7 @@ int main(int argc, char **argv)
 	unsigned long long fsize;
 
 	char *buf;
-	int written = 0;
+	unsigned long long written = 0;
 	int ret = 0;
 
 	if (argc < 2) {
@@ -31,11 +31,13 @@ int main(int argc, char **argv)
 		fsize = 1024 * 1024 * 1024;
 	}
 
+	printf("fsize is %llu\n", fsize);
 	while (written < fsize) {
 		buf = malloc(BUF_SIZE);
 		memset(buf, 'z', BUF_SIZE);
 
 		ret = write(fd, buf, BUF_SIZE);
+		printf("%d bytes written\n", ret);
 		written += ret;
 	}
 
