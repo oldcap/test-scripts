@@ -5,6 +5,7 @@
 #include <fcntl.h>
 #include <malloc.h>
 #include <unistd.h>
+#include <string.h>
 #define BUF_SIZE 20480
 
 int main(int argc, char **argv) {
