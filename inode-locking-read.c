@@ -9,7 +9,7 @@
 
 int main(int argc, char **argv) {
 	if (argc < 2) {
-		printf("Usage: inode-locking <file name> <offset>\n");
+		printf("Usage: inode-locking-read <file name> <offset>\n");
 		return -1;
 	}
 
