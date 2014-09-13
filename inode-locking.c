@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
 	while(1) {
 		sleep(1);
 		if (lseek(fd, offset, SEEK_SET) != offset) {
-			printf("Cannot seek\n");
+			perror("Cannot seek");
 		}
 		read(fd, buf, BUF_SIZE);
 		printf("%s\n", buf + (BUF_SIZE - 128));
