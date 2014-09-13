@@ -15,6 +15,7 @@ int main(int argc, char **argv) {
 
 	char * buf = memalign(4096, BUF_SIZE);
 
+	// int fd = open(argv[1], O_RDWR | O_DIRECT);
 	int fd = open(argv[1], O_RDWR | O_DIRECT);
 
 	while(1) {
